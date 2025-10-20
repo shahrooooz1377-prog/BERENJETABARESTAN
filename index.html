@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}صفحه اصلی - برنج طبرستان{% endblock %}
+{% block content %}
+<div class="p-4 bg-white rounded shadow-sm text-center">
+  <h1>فروشگاه برنج طبرستان حاج محمد یوسفی</h1>
+  {% if message %}<div class="alert alert-success mt-3">{{ message }}</div>{% endif %}
+  <p class="lead">به فروشگاه ما خوش آمدید — تازه‌ترین جشنواره‌ها و تخفیف‌ها را ببینید.</p>
+  <a class="btn btn-success" href="/festivals">دیدن جشنواره‌ها</a>
+</div>

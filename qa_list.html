@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>پرسش و پاسخ درباره برنج</h2>
+<div class="mb-3">
+  <form id="qaForm" class="d-flex">
+    <input id="qinput" class="form-control me-2" placeholder="سوال خود را بنویسید..." />
+    <button type="button" id="askBtn" class="btn btn-outline-primary">پرسش</button>
+  </form>
+</div>
+<div id="answerBox"></div>
+
+<hr>
+<h4>سوالات متداول</h4>
+<div class="accordion" id="faqs">
+  {% for faq in faqs %}
+  <div class="accordion-item text-right">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq{{ faq.id }}">{{ faq.question }}</button>
+    </h2>
+    <div id="faq{{ faq.id }}" class="accordion-collapse collapse" data-bs-parent="#faqs">
+      <div class="accordion-body">{{ faq.answer }}</div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<script>
+document.getElementById('askBtn').addEventListener('click', async ()=>{
+  const q = document.getElementById('qinput').value.trim();
+  if(!q) return;
+  document.getElementById('answerBox').innerHTML = '<p>در حال جستجو...</p>';
+  const res = await fetch('/api/qa', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({question: q})});
+  if(res.ok){
+    const data = await res.json();
+    document.getElementById('answerBox').innerHTML = '<div class="alert alert-info"><strong>پاسخ:</strong><br/>'+data.answer+'</div>';
+  } else {
+    document.getElementById('answerBox').innerHTML = '<div class="alert alert-warning">پاسخی یافت نشد.</div>';
+  }
+});
+</script>
+{% endblock %}

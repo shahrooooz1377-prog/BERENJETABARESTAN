@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>جشنواره‌ها</h4>
+<a href="/admin/dashboard" class="btn btn-secondary mb-2">بازگشت</a>
+<table class="table table-striped text-right">
+  <thead><tr><th>#</th><th>عنوان</th><th>تاریخ</th></tr></thead>
+  <tbody>
+  {% for f in festivals %}
+    <tr><td>{{ f[0] }}</td><td>{{ f[1] }}</td><td>{{ f[2] }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

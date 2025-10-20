@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <div class="card p-3">
+      <h4>ورود مدیر</h4>
+      {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+      <form method="post" action="/admin/login">
+        <div class="mb-3"><label>نام کاربری</label><input class="form-control" name="username" required></div>
+        <div class="mb-3"><label>رمز عبور</label><input class="form-control" type="password" name="password" required></div>
+        <button class="btn btn-primary">ورود</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

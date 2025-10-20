@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card p-3">
+      <h4>فرم ثبت مشتری</h4>
+      <form method="post" action="/register">
+        <div class="mb-3"><label>نام</label><input class="form-control" name="name" required></div>
+        <div class="mb-3"><label>شماره تلفن</label><input class="form-control" name="phone" required></div>
+        <div class="mb-3"><label>شهر</label><input class="form-control" name="city" required></div>
+        <button class="btn btn-primary">ثبت</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

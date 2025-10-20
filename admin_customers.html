@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>مشتریان ثبت‌شده</h4>
+<table class="table table-striped table-bordered text-right">
+  <thead><tr><th>#</th><th>نام</th><th>شماره</th><th>شهر</th></tr></thead>
+  <tbody>
+  {% for c in customers %}
+    <tr><td>{{ c[0] }}</td><td>{{ c[1] }}</td><td>{{ c[2] }}</td><td>{{ c[3] }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

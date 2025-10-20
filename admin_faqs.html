@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h4>سوالات متداول</h4>
+<a href="/admin/dashboard" class="btn btn-secondary mb-2">بازگشت</a>
+<table class="table table-striped text-right">
+  <thead><tr><th>#</th><th>سوال</th><th>پاسخ</th></tr></thead>
+  <tbody>
+  {% for q in faqs %}
+    <tr><td>{{ q[0] }}</td><td>{{ q[1] }}</td><td>{{ q[2] }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

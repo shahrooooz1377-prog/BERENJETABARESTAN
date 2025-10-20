@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>جشنواره‌ها</h2>
+<div class="row">
+  {% for f in festivals %}
+  <div class="col-md-4">
+    <div class="card mb-3">
+      {% if f.image_url %}<img src="{{ f.image_url }}" class="card-img-top">{% endif %}
+      <div class="card-body text-right">
+        <h5 class="card-title">{{ f.title }}</h5>
+        <p class="card-text">{{ f.description }}</p>
+        <p class="text-muted">تاریخ: {{ f.date }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% if not festivals %}<p>هیچ جشنواره‌ای فعال نیست.</p>{% endif %}
+</div>
+{% endblock %}
